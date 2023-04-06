@@ -2,9 +2,6 @@ function playGame() {
   let winner = "";
 
   function playRound(userChoice, computerChoice) {
-    console.log(
-      `You chose ${userChoice} and computer chose ${computerChoice}!`
-    );
     if (userChoice == computerChoice) {
       return "It's a tie!";
     }
@@ -44,6 +41,6 @@ function playGame() {
   const userChoice = prompt("Choose rock, paper or scissors");
   const computerChoice = getComputerChoice();
   const result = `You chose ${userChoice} and computer chose ${computerChoice}. ${playRound(userChoice.toLowerCase(), computerChoice)}`;
-  alert(result);
+  console.log(result);
   return winner;
 }

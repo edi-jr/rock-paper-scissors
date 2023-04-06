@@ -73,10 +73,5 @@ function play() {
     }
   }
 
-  let play = true;
-
-  while (play) {
-    playGame();
-    play = confirm("Play again?");
-  }
+  playGame();
 }

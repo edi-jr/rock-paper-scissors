@@ -1,4 +1,4 @@
-function play() {
+function start() {
   function game() {
     let winner = "";
 

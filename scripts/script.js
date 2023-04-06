@@ -1,4 +1,4 @@
-function playGame() {
+function game() {
   let winner = "";
 
   function playRound(userChoice, computerChoice) {
@@ -45,21 +45,31 @@ function playGame() {
   return winner;
 }
 
-let playerScore = 0;
-let computerScore = 0;
+function playGame() {
+  console.clear();
+  let playerScore = 0;
+  let computerScore = 0;
 
-while (playerScore < 3 && computerScore < 3) {
-  let winner = playGame();
-  if(winner === "User") {
-    playerScore++;
-  } else if(winner === "Computer") {
-    computerScore++;
+  while (playerScore < 3 && computerScore < 3) {
+    let winner = game();
+    if(winner === "User") {
+      playerScore++;
+    } else if(winner === "Computer") {
+      computerScore++;
+    }
+    console.log(`Your score: ${playerScore}. Computer score: ${computerScore}`);
   }
-  console.log(`Your score: ${playerScore}. Computer score: ${computerScore}`);
+
+  if(playerScore > computerScore) {
+    console.log("You won the best of five!");
+  } else {
+    console.log("You lost the best of five!");
+  }
 }
 
-if(playerScore > computerScore) {
-  console.log("You won the best of five!");
-} else {
-  console.log("You lost the best of five!");
+let play = true;
+
+while(play) {
+  playGame();
+  play = confirm("Play again?");
 }

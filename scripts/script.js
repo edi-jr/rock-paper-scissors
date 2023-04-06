@@ -1,35 +1,30 @@
 function start() {
   function game() {
-    let winner = "";
-
     function playRound(userChoice, computerChoice) {
-      if (userChoice == computerChoice) {
-        return "It's a tie!";
-      }
       switch (userChoice) {
         case "rock":
           if (computerChoice === "scissors") {
-            winner = "User";
-            return "You won! Rock beats scissors!";
+            console.log("You chose rock. Computer chose scissors. You won!");
+            return "User";
           } else {
-            winner = "Computer";
-            return "You lost! Paper beats rock!";
+            console.log("You chose rock. Computer chose paper. You lost!");
+            return "Computer";
           }
         case "paper":
           if (computerChoice === "rock") {
-            winner = "User";
-            return "You won! Paper beats rock!";
+            console.log("You chose paper. Computer chose rock. You won!");
+            return "User";
           } else {
-            winner = "Computer";
-            return "You lost! Scissors beats paper!";
+            console.log("You chose paper. Computer chose scissors. You lost!");
+            return "Computer";
           }
         default:
           if (computerChoice === "paper") {
-            winner = "User";
-            return "You won! Scissors beats paper!";
+            console.log("You chose scissors. Computer chose paper. You won!");
+            return "User";
           } else {
-            winner = "Computer";
-            return "You lost! Rock beats scissors!";
+            console.log("You chose scissors. Computer chose rock. You lost!");
+            return "Computer";
           }
       }
     }
@@ -44,9 +39,12 @@ function start() {
       userChoice = prompt("Choose rock, paper or scissors").toLowerCase();
     }
     const computerChoice = getComputerChoice();
-    const result = `You chose ${userChoice} and computer chose ${computerChoice}. ${playRound(userChoice, computerChoice)}`;
-    console.log(result);
-    return winner;
+    if(userChoice === computerChoice) {
+      console.log(`You chose ${userChoice}. Computer chose ${computerChoice}. It's a tie!`);
+    } else {
+      const result = playRound(userChoice, computerChoice);
+      return result;
+    }
   }
 
   function playGame() {

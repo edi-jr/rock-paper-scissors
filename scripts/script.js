@@ -35,12 +35,18 @@ function start() {
     }
 
     let userChoice = "";
-    while(userChoice !== "rock" && userChoice !== "paper" && userChoice !== "scissors") {
+    while (
+      userChoice !== "rock" &&
+      userChoice !== "paper" &&
+      userChoice !== "scissors"
+    ) {
       userChoice = prompt("Choose rock, paper or scissors").toLowerCase();
     }
     const computerChoice = getComputerChoice();
-    if(userChoice === computerChoice) {
-      console.log(`You chose ${userChoice}. Computer chose ${computerChoice}. It's a tie!`);
+    if (userChoice === computerChoice) {
+      console.log(
+        `You chose ${userChoice}. Computer chose ${computerChoice}. It's a tie!`
+      );
     } else {
       const result = playRound(userChoice, computerChoice);
       return result;

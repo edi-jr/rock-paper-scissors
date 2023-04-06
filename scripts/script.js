@@ -44,3 +44,22 @@ function playGame() {
   console.log(result);
   return winner;
 }
+
+let playerScore = 0;
+let computerScore = 0;
+
+while (playerScore < 3 && computerScore < 3) {
+  let winner = playGame();
+  if(winner === "User") {
+    playerScore++;
+  } else if(winner === "Computer") {
+    computerScore++;
+  }
+  console.log(`Your score: ${playerScore}. Computer score: ${computerScore}`);
+}
+
+if(playerScore > computerScore) {
+  console.log("You won the best of five!");
+} else {
+  console.log("You lost the best of five!");
+}

@@ -39,7 +39,10 @@ function play() {
       return choices[Math.floor(Math.random() * 3)];
     }
 
-    const userChoice = prompt("Choose rock, paper or scissors").toLowerCase();
+    let userChoice = "";
+    while(userChoice !== "rock" && userChoice !== "paper" && userChoice !== "scissors") {
+      userChoice = prompt("Choose rock, paper or scissors").toLowerCase();
+    }
     const computerChoice = getComputerChoice();
     const result = `You chose ${userChoice} and computer chose ${computerChoice}. ${playRound(userChoice, computerChoice)}`;
     console.log(result);

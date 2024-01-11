@@ -45,9 +45,24 @@ function updateScoreboard(winner, userChoice, computerChoice) {
   scoreboardText.appendChild(p);
   p1.textContent = `Your score: ${userScore}. Computer score: ${computerScore}.`;
   scoreboardNumbers.appendChild(p1);
-
+  updateChoices(userChoice, computerChoice)
   if(userScore === 5 || computerScore === 5) {
     endGame();
+  }
+}
+
+function updateChoices(userChoice, computerChoice) {
+  scoreboardPlayerChoice.textContent = getEmoji(userChoice);
+  scoreboardComputerChoice.textContent = getEmoji(computerChoice);
+}
+
+function getEmoji(text) {
+  if (text == "rock") {
+    return "✊";
+  } else if(text == "paper") {
+    return "✋";
+  } else {
+    return "✌️";
   }
 }
 
@@ -60,12 +75,14 @@ function endGame() {
   p.textContent = userScore > computerScore ? "You won the game!" : "You lost the game!";
   result.appendChild(p);
   result.appendChild(button);
+  result.style.display = "flex";
 }
 
 function playAgain() {
   userScore = 0;
   computerScore = 0;
   result.textContent = "";
+  result.style.display = "none";
   scoreboardText.textContent = "";
   scoreboardNumbers.textContent = "";
   buttons.forEach(button => button.disabled = false);
@@ -75,6 +92,8 @@ function playAgain() {
   p1.textContent = "Your score: 0. Computer score: 0.";
   scoreboardText.appendChild(p);
   scoreboardNumbers.appendChild(p1);
+  scoreboardPlayerChoice.textContent = "❔";
+  scoreboardComputerChoice.textContent = "❔";
 }
 
 function getComputerChoice() {
@@ -83,8 +102,11 @@ function getComputerChoice() {
 }
 
 const scoreboard = document.querySelector("#scoreboard");
-const scoreboardText = scoreboard.children[0];
-const scoreboardNumbers= scoreboard.children[1];
+const scoreboardText = document.querySelector("#text");
+const scoreboardChoices = document.querySelector("#choices");
+const scoreboardPlayerChoice = document.querySelector("#player");
+const scoreboardComputerChoice = document.querySelector("#computer");
+const scoreboardNumbers= document.querySelector("#numbers");
 const buttons = document.querySelectorAll("#buttons > *");
 const result = document.querySelector("#result");
 let userScore = 0;

@@ -2,35 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <style>
-    #buttons > button {
-
-      padding: 0.3em;
-      font-size: 2em;
-    }
-  </style>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🆚</text></svg>">
+  <link rel="stylesheet" href="./style.css">
   <script src="./scripts/script.js" defer></script>
   <title>Rock Paper Scissors</title>
 </head>
 
 <body>
-  <h1>ROCK PAPER SCISSORS</h1>
-
-  <div id="scoreboard">
-    <div id="text">
-      <p>Click the buttons bellow to start.</p>
+  <div class="container">
+    <div class="heading">
+      <h1>ROCK PAPER SCISSORS</h1>
     </div>
-    <div id="numbers">
-      <p>Your score: 0. Computer score: 0.</p>
+
+    <div class="game">
+      <div id="scoreboard">
+        <div id="text">
+          <p>Click the buttons bellow to start.</p>
+        </div>
+        <div id="choices">
+          <div id="player">❔</div>
+          <div>x</div>
+          <div id="computer">❔</div>
+        </div>
+        <div id="numbers">
+          <p>Your score: 0. Computer score: 0.</p>
+        </div>
+      </div>
+
+      <div id="buttons">
+        <button id="rock">✊</button>
+        <button id="paper">✋</button>
+        <button id="scissors">✌️</button>
+      </div>
+
+      <div id="result"></div>
     </div>
   </div>
-
-  <div id="buttons">
-    <button id="rock">✊</button>
-    <button id="paper">✋</button>
-    <button id="scissors">✌️</button>
-  </div>
-
-  <div id="result"></div>
 </body>
 </html>

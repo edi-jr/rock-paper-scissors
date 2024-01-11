@@ -56,6 +56,12 @@ button {
   font-size: 5em;
 }
 
+@media screen and (max-width: 680px) {
+  #buttons > button {
+    font-size: 3em;
+  }
+}
+
 #buttons > button + button {
   margin-left: 20px;
 }

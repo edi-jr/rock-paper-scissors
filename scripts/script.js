@@ -29,22 +29,18 @@ function playRound(userChoice, computerChoice) {
 }
 
 function updateScoreboard(winner, userChoice, computerChoice) {
-  const p = document.createElement("p");
-  const p1 = document.createElement("p");
   scoreboardText.textContent = "";
   scoreboardNumbers.textContent = "";
   if(winner === "User") {
     userScore++;
-    p.textContent = `You win! ${userChoice} beats ${computerChoice}.`;
+    scoreboardText.textContent = `You win! ${userChoice} beats ${computerChoice}.`;
   } else if (winner === "Computer") {
     computerScore++;
-    p.textContent = `You lose! ${computerChoice} beats ${userChoice}.`;
+    scoreboardText.textContent = `You lose! ${computerChoice} beats ${userChoice}.`;
   } else {
-    p.textContent = "It's a tie!";
+    scoreboardText.textContent = "It's a tie!";
   }
-  scoreboardText.appendChild(p);
-  p1.textContent = `Your score: ${userScore}. Computer score: ${computerScore}.`;
-  scoreboardNumbers.appendChild(p1);
+  scoreboardNumbers.textContent = `Your score: ${userScore}. Computer score: ${computerScore}.`;
   updateChoices(userChoice, computerChoice)
   if(userScore === 5 || computerScore === 5) {
     endGame();
@@ -86,12 +82,8 @@ function playAgain() {
   scoreboardText.textContent = "";
   scoreboardNumbers.textContent = "";
   buttons.forEach(button => button.disabled = false);
-  const p = document.createElement("p");
-  const p1 = document.createElement("p");
-  p.textContent = "Click the buttons bellow to start.";
-  p1.textContent = "Your score: 0. Computer score: 0.";
-  scoreboardText.appendChild(p);
-  scoreboardNumbers.appendChild(p1);
+  scoreboardText.textContent = "Click the buttons bellow to start.";
+  scoreboardNumbers.textContent = "Your score: 0. Computer score: 0.";
   scoreboardPlayerChoice.textContent = "❔";
   scoreboardComputerChoice.textContent = "❔";
 }
